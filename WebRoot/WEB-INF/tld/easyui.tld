@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+                        "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.2</jsp-version>
+	<short-name>t</short-name>
+	<uri>/easyui-tags</uri>
+	<display-name>"ui自定义标签"</display-name>
+
+	<!-- easyui layout 标签 -->
+	<tag>
+		<name>body</name>
+		<tag-class>org.sagacity.taglib.ui.LayoutBodyTag</tag-class>
+		<body-content>jsp</body-content>
+		<description>easy ui 标签</description>
+	</tag>
+	
+	<tag>
+		<name>layout</name>
+		<tag-class>org.sagacity.taglib.ui.LayoutTag</tag-class>
+		<body-content>jsp</body-content>
+		<description>easy ui 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html title属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>border</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>border</description>
+		</attribute>
+		<attribute>
+			<name>fit</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>fit</description>
+		</attribute>
+	</tag>
+
+	<tag>
+		<name>region</name>
+		<tag-class>org.sagacity.taglib.ui.LayoutRegionTag</tag-class>
+		<body-content>jsp</body-content>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>region</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>region</description>
+		</attribute>
+		<attribute>
+			<name>split</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>split</description>
+		</attribute>
+		<attribute>
+			<name>border</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>split</description>
+		</attribute>
+		<attribute>
+			<name>href</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>href</description>
+		</attribute>
+		<attribute>
+			<name>icon</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>icon</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html title属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>collapsed</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>是否折叠布局</description>
+		</attribute>
+	</tag>
+	
+	<!-- easyui tabs 标签 -->
+	<tag>
+		<name>tabs</name>
+		<tag-class>org.sagacity.taglib.ui.TabsTag</tag-class>
+		<body-content>jsp</body-content>
+		<description>easy ui 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>fit</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>fit</description>
+		</attribute>
+		<attribute>
+			<name>plain</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>plain</description>
+		</attribute>
+		<attribute>
+			<name>border</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>border</description>
+		</attribute>
+	</tag>
+	<tag>
+		<name>tab</name>
+		<tag-class>org.sagacity.taglib.ui.TabTag</tag-class>
+		<body-content>jsp</body-content>
+		<description>easy ui 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>title</description>
+		</attribute>
+		<attribute>
+			<name>content</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>content</description>
+		</attribute>
+		<attribute>
+			<name>href</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>href</description>
+		</attribute>
+		<attribute>
+			<name>cache</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>cache</description>
+		</attribute>
+		<attribute>
+			<name>icon</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>icon</description>
+		</attribute>
+		<attribute>
+			<name>collapsible</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>collapsible</description>
+		</attribute>
+	</tag>
+	<!-- easyui panel 标签 -->
+	<tag>
+		<name>panel</name>
+		<tag-class>org.sagacity.taglib.ui.PanelTag</tag-class>
+		<body-content>jsp</body-content>
+		<description>easy ui 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>title</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html title属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+	</tag>
+	<!-- 日历控件 -->
+	<tag>
+		<name>WdatePicker</name>
+		<tag-class>org.sagacity.taglib.ui.WdatePickerTag</tag-class>
+		<body-content>empty</body-content>
+		<description>easy ui 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html name属性</description>
+		</attribute>
+		<attribute>
+			<name>params</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html params属性</description>
+		</attribute>
+		<attribute>
+			<name>readonly</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html readonly属性</description>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html value属性</description>
+		</attribute>
+		<attribute>
+			<name>defaultTime</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>默认显示当前时间</description>
+		</attribute>
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>必填</description>
+		</attribute>
+	</tag>
+	<!-- easy ui combobox -->
+	<tag>
+		<name>combobox</name>
+		<tag-class>org.sagacity.taglib.ui.ComboboxTag</tag-class>
+		<body-content>empty</body-content>
+		<description>easy ui 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html value属性</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html name属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>editable</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>是否可用编辑</description>
+		</attribute>
+		<attribute>
+			<name>url</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html url属性</description>
+		</attribute>
+		<attribute>
+			<name>valueField</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>valueField 值字段名称</description>
+		</attribute>
+		<attribute>
+			<name>textField</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>显示字段属性</description>
+		</attribute>
+		<attribute>
+			<name>multiple</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>是否多选</description>
+		</attribute>
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>是否必填</description>
+		</attribute>
+	</tag>
+	<!-- ueditor编辑器控件 -->
+	<tag>
+		<name>UEditor</name>
+		<tag-class>org.sagacity.taglib.ui.UEditorTag</tag-class>
+		<body-content>empty</body-content>
+		<description>UEeditor 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html name属性</description>
+		</attribute>
+		<attribute>
+			<name>readonly</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html readonly属性</description>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html value属性</description>
+		</attribute>
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>必填</description>
+		</attribute>
+	</tag>
+	<!-- 文本输入框控件 -->
+	<tag>
+		<name>input</name>
+		<tag-class>org.sagacity.taglib.ui.InputTag</tag-class>
+		<body-content>empty</body-content>
+		<description>easyui 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html name属性</description>
+		</attribute>
+		<attribute>
+			<name>readonly</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html readonly属性</description>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html value属性</description>
+		</attribute>
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>必填</description>
+		</attribute>
+		<attribute>
+			<name>validType</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>限制输入长度格式为[0, 100]</description>
+		</attribute>
+	</tag>
+	<!-- 文本域控件 -->
+	<tag>
+		<name>textarea</name>
+		<tag-class>org.sagacity.taglib.ui.TextareaTag</tag-class>
+		<body-content>empty</body-content>
+		<description>easyui 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html name属性</description>
+		</attribute>
+		<attribute>
+			<name>readonly</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html readonly属性</description>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html value属性</description>
+		</attribute>
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>必填</description>
+		</attribute>
+		<attribute>
+			<name>validType</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>限制输入长度格式为[0, 100]</description>
+		</attribute>
+	</tag>
+	<!-- 数字文本输入框控件 -->
+	<tag>
+		<name>numberbox</name>
+		<tag-class>org.sagacity.taglib.ui.NumberboxTag</tag-class>
+		<body-content>empty</body-content>
+		<description>easyui 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html name属性</description>
+		</attribute>
+		<attribute>
+			<name>readonly</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html readonly属性</description>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html value属性</description>
+		</attribute>
+		<attribute>
+			<name>maxLength</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>必填</description>
+		</attribute>
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>必填</description>
+		</attribute>
+	</tag>
+	<!-- url文本输入框控件 -->
+	<tag>
+		<name>urlbox</name>
+		<tag-class>org.sagacity.taglib.ui.UrlboxTag</tag-class>
+		<body-content>empty</body-content>
+		<description>easyui 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html name属性</description>
+		</attribute>
+		<attribute>
+			<name>readonly</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html readonly属性</description>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html value属性</description>
+		</attribute>
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>必填</description>
+		</attribute>
+	</tag>
+	<!-- email文本输入框控件 -->
+	<tag>
+		<name>emailbox</name>
+		<tag-class>org.sagacity.taglib.ui.EmailboxTag</tag-class>
+		<body-content>empty</body-content>
+		<description>easyui 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html name属性</description>
+		</attribute>
+		<attribute>
+			<name>readonly</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html readonly属性</description>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html value属性</description>
+		</attribute>
+		<attribute>
+			<name>required</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>必填</description>
+		</attribute>
+	</tag>
+	<!-- 搜索文本输入框控件 -->
+	<tag>
+		<name>searchbox</name>
+		<tag-class>org.sagacity.taglib.ui.SearchboxTag</tag-class>
+		<body-content>empty</body-content>
+		<description>easyui 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>name</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html name属性</description>
+		</attribute>
+		<attribute>
+			<name>searcher</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>搜索事件</description>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html value属性</description>
+		</attribute>menu
+		<attribute>
+			<name>prompt</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>提示信息</description>
+		</attribute>
+		<attribute>
+			<name>menu</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>menu</description>
+		</attribute>
+	</tag>
+	<!-- 按钮控件 -->
+	<tag>
+		<name>linkButton</name>
+		<tag-class>org.sagacity.taglib.ui.LinkButtonTag</tag-class>
+		<body-content>jsp</body-content>
+		<description>easyui 标签</description>
+		<attribute>
+			<name>id</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html id属性</description>
+		</attribute>
+		<attribute>
+			<name>cssClass</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html class属性</description>
+		</attribute>
+		<attribute>
+			<name>style</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>html style属性</description>
+		</attribute>
+		<attribute>
+			<name>text</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>text</description>
+		</attribute>
+		<attribute>
+			<name>icon</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>icon</description>
+		</attribute>
+		<attribute>
+			<name>iconAlign</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>iconAlign</description>
+		</attribute>
+		<attribute>
+			<name>onclick</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>onclick</description>
+		</attribute>
+		<attribute>
+			<name>href</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>href</description>
+		</attribute>
+		<attribute>
+			<name>disabled</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>disabled</description>
+		</attribute>
+		<attribute>
+			<name>toggle</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>toggle</description>
+		</attribute>
+		<attribute>
+			<name>selected</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>selected</description>
+		</attribute>
+		<attribute>
+			<name>plain</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>plain</description>
+		</attribute>
+	</tag>
+</taglib>

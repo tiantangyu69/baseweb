@@ -1,0 +1,1 @@
+var leaveMessage = new baseManage("leaveMessage");

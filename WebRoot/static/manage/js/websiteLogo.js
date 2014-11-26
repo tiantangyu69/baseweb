@@ -1,0 +1,1 @@
+var websiteLogo = new baseManage("websiteLogo");

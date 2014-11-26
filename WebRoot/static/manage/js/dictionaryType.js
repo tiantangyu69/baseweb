@@ -1,0 +1,1 @@
+var dictionaryType = new baseManage("dictionaryType");

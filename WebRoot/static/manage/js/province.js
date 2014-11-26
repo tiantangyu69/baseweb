@@ -1,0 +1,1 @@
+var province = new baseManage("province");

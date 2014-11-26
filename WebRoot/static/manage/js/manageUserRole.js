@@ -1,0 +1,1 @@
+var manageUserRole = new baseManage("manageUserRole");

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jgenerator.model.SinglePageMapper">
+    <cache />
+    
+    <insert id="insert" parameterType="org.jgenerator.model.SinglePage" useGeneratedKeys="true" keyProperty="id">
+		insert into SinglePage 
+		(id, name, singlePageTypeId, content, attribute1, attribute2, attribute3)
+		values
+		(#{id}, #{name}, #{singlePageTypeId}, #{content}, #{attribute1}, #{attribute2}, #{attribute3})
+	</insert>
+	
+	<select id="queryByCondition" parameterType="map" resultType="org.jgenerator.model.SinglePage">
+		select * from SinglePage 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+        <if test="orderBy==null and sortBy==null">
+			order by id desc
+		</if>
+        <if test="orderBy!=null">
+			order by ${orderBy}
+		</if>
+        <if test="orderBy!=null and sortBy!=null">
+			${sortBy}
+		</if>
+        <if test="beginRow==null or pageSize==null">
+			limit 0,10
+		</if>
+        <if test="beginRow!=null and pageSize!=null">
+			limit #{beginRow},#{pageSize}
+		</if>
+    </select>
+    
+    <select id="findAll" parameterType="map" resultType="org.jgenerator.model.SinglePage">
+		select * from SinglePage 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="distinct" parameterType="map" resultType="org.jgenerator.model.SinglePage">
+		select Distinct * from SinglePage 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+        <if test="orderBy==null and sortBy==null">
+			order by id desc
+		</if>
+        <if test="orderBy!=null">
+			order by ${orderBy}
+		</if>
+        <if test="orderBy!=null and sortBy!=null">
+			${sortBy}
+		</if>
+        <if test="beginRow==null or pageSize==null">
+			limit 0,10
+		</if>
+        <if test="beginRow!=null and pageSize!=null">
+			limit #{beginRow},#{pageSize}
+		</if>
+    </select>
+
+    <select id="find" parameterType="map" resultType="org.jgenerator.model.SinglePage">
+		select * from SinglePage 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="count" parameterType="map" resultType="int">
+		select count(0) from SinglePage 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="fetch" parameterType="int" resultType="org.jgenerator.model.SinglePage">
+		select * from SinglePage where id=#{id}
+	</select>
+
+    <select id="fetchByCondition" parameterType="int" resultType="org.jgenerator.model.SinglePage">
+		select * from SinglePage
+        <where>
+            <include refid="condition"/>
+        </where>
+    </select>
+
+    <delete id="deleteById" parameterType="int">
+		delete from SinglePage where id=#{id}
+	</delete>
+
+    <delete id="deleteByCondition" parameterType="map">
+		delete from SinglePage 
+        <where>
+            <include refid="condition"/>
+        </where>
+    </delete>
+
+    <update id="update" parameterType="org.jgenerator.model.SinglePage">
+		update SinglePage 
+        <set>
+					<if test="id !=null">
+						id = #{id},
+					</if> 
+					<if test="name !=null">
+						name = #{name},
+					</if> 
+					<if test="singlePageTypeId !=null">
+						singlePageTypeId = #{singlePageTypeId},
+					</if> 
+					<if test="content !=null">
+						content = #{content},
+					</if> 
+					<if test="attribute1 !=null">
+						attribute1 = #{attribute1},
+					</if> 
+					<if test="attribute2 !=null">
+						attribute2 = #{attribute2},
+					</if> 
+					<if test="attribute3 !=null">
+						attribute3 = #{attribute3}
+					</if> 
+        </set>
+		where id = #{id}
+    </update>
+
+    <sql id="condition">
+			<if test="id !=null">
+				and id = #{id}
+			</if> 
+			<if test="name !=null">
+				and name = #{name}
+			</if> 
+			<if test="singlePageTypeId !=null">
+				and singlePageTypeId = #{singlePageTypeId}
+			</if> 
+			<if test="content !=null">
+				and content = #{content}
+			</if> 
+			<if test="attribute1 !=null">
+				and attribute1 = #{attribute1}
+			</if> 
+			<if test="attribute2 !=null">
+				and attribute2 = #{attribute2}
+			</if> 
+			<if test="attribute3 !=null">
+				and attribute3 = #{attribute3}
+			</if> 
+    </sql>
+
+    <sql id="andLikeCondition">
+			<if test="andLikeId!=null and andLikeId!=''">
+				and id like CONCAT(CONCAT('%',#{andLikeId}),'%')
+			</if> 
+			<if test="andLikeName!=null and andLikeName!=''">
+				and name like CONCAT(CONCAT('%',#{andLikeName}),'%')
+			</if> 
+			<if test="andLikeSinglePageTypeId!=null and andLikeSinglePageTypeId!=''">
+				and singlePageTypeId like CONCAT(CONCAT('%',#{andLikeSinglePageTypeId}),'%')
+			</if> 
+			<if test="andLikeContent!=null and andLikeContent!=''">
+				and content like CONCAT(CONCAT('%',#{andLikeContent}),'%')
+			</if> 
+			<if test="andLikeAttribute1!=null and andLikeAttribute1!=''">
+				and attribute1 like CONCAT(CONCAT('%',#{andLikeAttribute1}),'%')
+			</if> 
+			<if test="andLikeAttribute2!=null and andLikeAttribute2!=''">
+				and attribute2 like CONCAT(CONCAT('%',#{andLikeAttribute2}),'%')
+			</if> 
+			<if test="andLikeAttribute3!=null and andLikeAttribute3!=''">
+				and attribute3 like CONCAT(CONCAT('%',#{andLikeAttribute3}),'%')
+			</if> 
+    </sql>
+
+    <sql id="startLikeCondition">
+			<if test="startLikeId!=null and startLikeId!=''">
+				and id like CONCAT(CONCAT(#{startLikeId}),'%')
+			</if> 
+			<if test="startLikeName!=null and startLikeName!=''">
+				and name like CONCAT(CONCAT(#{startLikeName}),'%')
+			</if> 
+			<if test="startLikeSinglePageTypeId!=null and startLikeSinglePageTypeId!=''">
+				and singlePageTypeId like CONCAT(CONCAT(#{startLikeSinglePageTypeId}),'%')
+			</if> 
+			<if test="startLikeContent!=null and startLikeContent!=''">
+				and content like CONCAT(CONCAT(#{startLikeContent}),'%')
+			</if> 
+			<if test="startLikeAttribute1!=null and startLikeAttribute1!=''">
+				and attribute1 like CONCAT(CONCAT(#{startLikeAttribute1}),'%')
+			</if> 
+			<if test="startLikeAttribute2!=null and startLikeAttribute2!=''">
+				and attribute2 like CONCAT(CONCAT(#{startLikeAttribute2}),'%')
+			</if> 
+			<if test="startLikeAttribute3!=null and startLikeAttribute3!=''">
+				and attribute3 like CONCAT(CONCAT(#{startLikeAttribute3}),'%')
+			</if> 
+    </sql>
+
+    <update id="setNull" parameterType="map">
+		update SinglePage 
+        <set>${tableField} = null</set>
+        <where>
+            <if test="id!=null">id = #{id}</if>
+            <include refid="condition"/>
+        </where>
+    </update>
+
+    <select id="maxInt" parameterType="map" resultType="int">
+		select max(${tableField}) from SinglePage 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+        </where>
+    </select>
+</mapper>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jgenerator.model.CityMapper">
+    <cache />
+    
+    <insert id="insert" parameterType="org.jgenerator.model.City" useGeneratedKeys="true" keyProperty="id">
+		insert into City 
+		(id, provinceId, name, sort, remark)
+		values
+		(#{id}, #{provinceId}, #{name}, #{sort}, #{remark})
+	</insert>
+	
+	<select id="queryByCondition" parameterType="map" resultType="org.jgenerator.model.City">
+		select * from City 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+        <if test="orderBy==null and sortBy==null">
+			order by sort,provinceId
+		</if>
+        <if test="orderBy!=null">
+			order by ${orderBy}
+		</if>
+        <if test="orderBy!=null and sortBy!=null">
+			${sortBy}
+		</if>
+        <if test="beginRow==null or pageSize==null">
+			limit 0,10
+		</if>
+        <if test="beginRow!=null and pageSize!=null">
+			limit #{beginRow},#{pageSize}
+		</if>
+    </select>
+    
+    <select id="findAll" parameterType="map" resultType="org.jgenerator.model.City">
+		select * from City 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+        </where>
+        order by sort,provinceId
+    </select>
+
+    <select id="distinct" parameterType="map" resultType="org.jgenerator.model.City">
+		select Distinct * from City 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+        <if test="orderBy==null and sortBy==null">
+			order by id desc
+		</if>
+        <if test="orderBy!=null">
+			order by ${orderBy}
+		</if>
+        <if test="orderBy!=null and sortBy!=null">
+			${sortBy}
+		</if>
+        <if test="beginRow==null or pageSize==null">
+			limit 0,10
+		</if>
+        <if test="beginRow!=null and pageSize!=null">
+			limit #{beginRow},#{pageSize}
+		</if>
+    </select>
+
+    <select id="find" parameterType="map" resultType="org.jgenerator.model.City">
+		select * from City 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="count" parameterType="map" resultType="int">
+		select count(0) from City 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="fetch" parameterType="int" resultType="org.jgenerator.model.City">
+		select * from City where id=#{id}
+	</select>
+
+    <select id="fetchByCondition" parameterType="int" resultType="org.jgenerator.model.City">
+		select * from City
+        <where>
+            <include refid="condition"/>
+        </where>
+    </select>
+
+    <delete id="deleteById" parameterType="int">
+		delete from City where id=#{id}
+	</delete>
+
+    <delete id="deleteByCondition" parameterType="map">
+		delete from City 
+        <where>
+            <include refid="condition"/>
+        </where>
+    </delete>
+
+    <update id="update" parameterType="org.jgenerator.model.City">
+		update City 
+        <set>
+					<if test="id !=null">
+						id = #{id},
+					</if> 
+					<if test="provinceId !=null">
+						provinceId = #{provinceId},
+					</if> 
+					<if test="name !=null">
+						name = #{name},
+					</if> 
+					<if test="sort !=null">
+						sort = #{sort},
+					</if> 
+					<if test="remark !=null">
+						remark = #{remark}
+					</if> 
+        </set>
+		where id = #{id}
+    </update>
+
+    <sql id="condition">
+			<if test="id !=null">
+				and id = #{id}
+			</if> 
+			<if test="provinceId !=null">
+				and provinceId = #{provinceId}
+			</if> 
+			<if test="name !=null">
+				and name = #{name}
+			</if> 
+			<if test="sort !=null">
+				and sort = #{sort}
+			</if> 
+			<if test="remark !=null">
+				and remark = #{remark}
+			</if> 
+    </sql>
+
+    <sql id="andLikeCondition">
+			<if test="andLikeId!=null and andLikeId!=''">
+				and id like CONCAT(CONCAT('%',#{andLikeId}),'%')
+			</if> 
+			<if test="andLikeProvinceId!=null and andLikeProvinceId!=''">
+				and provinceId like CONCAT(CONCAT('%',#{andLikeProvinceId}),'%')
+			</if> 
+			<if test="andLikeName!=null and andLikeName!=''">
+				and name like CONCAT(CONCAT('%',#{andLikeName}),'%')
+			</if> 
+			<if test="andLikeSort!=null and andLikeSort!=''">
+				and sort like CONCAT(CONCAT('%',#{andLikeSort}),'%')
+			</if> 
+			<if test="andLikeRemark!=null and andLikeRemark!=''">
+				and remark like CONCAT(CONCAT('%',#{andLikeRemark}),'%')
+			</if> 
+    </sql>
+
+    <sql id="startLikeCondition">
+			<if test="startLikeId!=null and startLikeId!=''">
+				and id like CONCAT(CONCAT(#{startLikeId}),'%')
+			</if> 
+			<if test="startLikeProvinceId!=null and startLikeProvinceId!=''">
+				and provinceId like CONCAT(CONCAT(#{startLikeProvinceId}),'%')
+			</if> 
+			<if test="startLikeName!=null and startLikeName!=''">
+				and name like CONCAT(CONCAT(#{startLikeName}),'%')
+			</if> 
+			<if test="startLikeSort!=null and startLikeSort!=''">
+				and sort like CONCAT(CONCAT(#{startLikeSort}),'%')
+			</if> 
+			<if test="startLikeRemark!=null and startLikeRemark!=''">
+				and remark like CONCAT(CONCAT(#{startLikeRemark}),'%')
+			</if> 
+    </sql>
+
+    <update id="setNull" parameterType="map">
+		update City 
+        <set>${tableField} = null</set>
+        <where>
+            <if test="id!=null">id = #{id}</if>
+            <include refid="condition"/>
+        </where>
+    </update>
+
+    <select id="maxInt" parameterType="map" resultType="int">
+		select max(${tableField}) from City 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+        </where>
+    </select>
+</mapper>

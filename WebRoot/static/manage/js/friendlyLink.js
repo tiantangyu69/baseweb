@@ -1,0 +1,1 @@
+var friendlyLink = new baseManage("friendlyLink");

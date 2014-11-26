@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="baseWeb">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/WebRoot" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <dependent-module archiveName="jSagacity-util-1.0.3-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jSagacity-util/jSagacity-util">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jSagacity-generator-1.1.4-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/jSagacity-generator/jSagacity-generator">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/baseWeb/target/classes"/>
+        <property name="component.inclusion.patterns" value="**/*.js,**/*.jsp,**/*.jpg,**/*.css,**/*.tld,**/*.xml,**/*.log"/>
+        <property name="component.exclusion.patterns" value="**/*.svn"/>
+        <property name="context-root" value="/"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,1 @@
+var ${entityName ? uncap_first} = new baseManage("${entityName ? uncap_first}");

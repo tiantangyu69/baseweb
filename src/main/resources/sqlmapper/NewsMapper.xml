@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jgenerator.model.NewsMapper">
+    <cache />
+    
+    <insert id="insert" parameterType="org.jgenerator.model.News" useGeneratedKeys="true" keyProperty="id">
+		insert into News 
+		(id, itemId, newsTypeId, title, author, source, sourceUrl, picPath, deployDate, content, status, deployUsername, attribute1, attribute2, attribute3, attribute4, attribute5, attribute6, attribute7, attribute8, attribute9, attribute10)
+		values
+		(#{id}, #{itemId}, #{newsTypeId}, #{title}, #{author}, #{source}, #{sourceUrl}, #{picPath}, #{deployDate}, #{content}, #{status}, #{deployUsername}, #{attribute1}, #{attribute2}, #{attribute3}, #{attribute4}, #{attribute5}, #{attribute6}, #{attribute7}, #{attribute8}, #{attribute9}, #{attribute10})
+	</insert>
+	
+	<select id="queryByCondition" parameterType="map" resultType="org.jgenerator.model.News">
+		select * from News 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+        <if test="orderBy==null and sortBy==null">
+			order by id desc
+		</if>
+        <if test="orderBy!=null">
+			order by ${orderBy}
+		</if>
+        <if test="orderBy!=null and sortBy!=null">
+			${sortBy}
+		</if>
+        <if test="beginRow==null or pageSize==null">
+			limit 0,10
+		</if>
+        <if test="beginRow!=null and pageSize!=null">
+			limit #{beginRow},#{pageSize}
+		</if>
+    </select>
+    
+    <select id="findAll" parameterType="map" resultType="org.jgenerator.model.News">
+		select * from News 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="distinct" parameterType="map" resultType="org.jgenerator.model.News">
+		select Distinct * from News 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+        <if test="orderBy==null and sortBy==null">
+			order by id desc
+		</if>
+        <if test="orderBy!=null">
+			order by ${orderBy}
+		</if>
+        <if test="orderBy!=null and sortBy!=null">
+			${sortBy}
+		</if>
+        <if test="beginRow==null or pageSize==null">
+			limit 0,10
+		</if>
+        <if test="beginRow!=null and pageSize!=null">
+			limit #{beginRow},#{pageSize}
+		</if>
+    </select>
+
+    <select id="find" parameterType="map" resultType="org.jgenerator.model.News">
+		select * from News 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="count" parameterType="map" resultType="int">
+		select count(0) from News 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="fetch" parameterType="int" resultType="org.jgenerator.model.News">
+		select * from News where id=#{id}
+	</select>
+
+    <select id="fetchByCondition" parameterType="int" resultType="org.jgenerator.model.News">
+		select * from News
+        <where>
+            <include refid="condition"/>
+        </where>
+    </select>
+
+    <delete id="deleteById" parameterType="int">
+		delete from News where id=#{id}
+	</delete>
+
+    <delete id="deleteByCondition" parameterType="map">
+		delete from News 
+        <where>
+            <include refid="condition"/>
+        </where>
+    </delete>
+
+    <update id="update" parameterType="org.jgenerator.model.News">
+		update News 
+        <set>
+					<if test="id !=null">
+						id = #{id},
+					</if> 
+					<if test="itemId !=null">
+						itemId = #{itemId},
+					</if> 
+					<if test="newsTypeId !=null">
+						newsTypeId = #{newsTypeId},
+					</if> 
+					<if test="title !=null">
+						title = #{title},
+					</if> 
+					<if test="author !=null">
+						author = #{author},
+					</if> 
+					<if test="source !=null">
+						source = #{source},
+					</if> 
+					<if test="sourceUrl !=null">
+						sourceUrl = #{sourceUrl},
+					</if> 
+					<if test="picPath !=null">
+						picPath = #{picPath},
+					</if> 
+					<if test="deployDate !=null">
+						deployDate = #{deployDate},
+					</if> 
+					<if test="content !=null">
+						content = #{content},
+					</if> 
+					<if test="status !=null">
+						status = #{status},
+					</if> 
+					<if test="deployUsername !=null">
+						deployUsername = #{deployUsername},
+					</if> 
+					<if test="attribute1 !=null">
+						attribute1 = #{attribute1},
+					</if> 
+					<if test="attribute2 !=null">
+						attribute2 = #{attribute2},
+					</if> 
+					<if test="attribute3 !=null">
+						attribute3 = #{attribute3},
+					</if> 
+					<if test="attribute4 !=null">
+						attribute4 = #{attribute4},
+					</if> 
+					<if test="attribute5 !=null">
+						attribute5 = #{attribute5},
+					</if> 
+					<if test="attribute6 !=null">
+						attribute6 = #{attribute6},
+					</if> 
+					<if test="attribute7 !=null">
+						attribute7 = #{attribute7},
+					</if> 
+					<if test="attribute8 !=null">
+						attribute8 = #{attribute8},
+					</if> 
+					<if test="attribute9 !=null">
+						attribute9 = #{attribute9},
+					</if> 
+					<if test="attribute10 !=null">
+						attribute10 = #{attribute10}
+					</if> 
+        </set>
+		where id = #{id}
+    </update>
+
+    <sql id="condition">
+			<if test="id !=null">
+				and id = #{id}
+			</if> 
+			<if test="itemId !=null">
+				and itemId = #{itemId}
+			</if> 
+			<if test="newsTypeId !=null">
+				and newsTypeId = #{newsTypeId}
+			</if> 
+			<if test="title !=null">
+				and title = #{title}
+			</if> 
+			<if test="author !=null">
+				and author = #{author}
+			</if> 
+			<if test="source !=null">
+				and source = #{source}
+			</if> 
+			<if test="sourceUrl !=null">
+				and sourceUrl = #{sourceUrl}
+			</if> 
+			<if test="picPath !=null">
+				and picPath = #{picPath}
+			</if> 
+			<if test="deployDate !=null">
+				and deployDate = #{deployDate}
+			</if> 
+			<if test="content !=null">
+				and content = #{content}
+			</if> 
+			<if test="status !=null">
+				and status = #{status}
+			</if> 
+			<if test="deployUsername !=null">
+				and deployUsername = #{deployUsername}
+			</if> 
+			<if test="attribute1 !=null">
+				and attribute1 = #{attribute1}
+			</if> 
+			<if test="attribute2 !=null">
+				and attribute2 = #{attribute2}
+			</if> 
+			<if test="attribute3 !=null">
+				and attribute3 = #{attribute3}
+			</if> 
+			<if test="attribute4 !=null">
+				and attribute4 = #{attribute4}
+			</if> 
+			<if test="attribute5 !=null">
+				and attribute5 = #{attribute5}
+			</if> 
+			<if test="attribute6 !=null">
+				and attribute6 = #{attribute6}
+			</if> 
+			<if test="attribute7 !=null">
+				and attribute7 = #{attribute7}
+			</if> 
+			<if test="attribute8 !=null">
+				and attribute8 = #{attribute8}
+			</if> 
+			<if test="attribute9 !=null">
+				and attribute9 = #{attribute9}
+			</if> 
+			<if test="attribute10 !=null">
+				and attribute10 = #{attribute10}
+			</if> 
+    </sql>
+
+    <sql id="andLikeCondition">
+			<if test="andLikeId!=null and andLikeId!=''">
+				and id like CONCAT(CONCAT('%',#{andLikeId}),'%')
+			</if> 
+			<if test="andLikeItemId!=null and andLikeItemId!=''">
+				and itemId like CONCAT(CONCAT('%',#{andLikeItemId}),'%')
+			</if> 
+			<if test="andLikeNewsTypeId!=null and andLikeNewsTypeId!=''">
+				and newsTypeId like CONCAT(CONCAT('%',#{andLikeNewsTypeId}),'%')
+			</if> 
+			<if test="andLikeTitle!=null and andLikeTitle!=''">
+				and title like CONCAT(CONCAT('%',#{andLikeTitle}),'%')
+			</if> 
+			<if test="andLikeAuthor!=null and andLikeAuthor!=''">
+				and author like CONCAT(CONCAT('%',#{andLikeAuthor}),'%')
+			</if> 
+			<if test="andLikeSource!=null and andLikeSource!=''">
+				and source like CONCAT(CONCAT('%',#{andLikeSource}),'%')
+			</if> 
+			<if test="andLikeSourceUrl!=null and andLikeSourceUrl!=''">
+				and sourceUrl like CONCAT(CONCAT('%',#{andLikeSourceUrl}),'%')
+			</if> 
+			<if test="andLikePicPath!=null and andLikePicPath!=''">
+				and picPath like CONCAT(CONCAT('%',#{andLikePicPath}),'%')
+			</if> 
+			<if test="andLikeDeployDate!=null and andLikeDeployDate!=''">
+				and deployDate like CONCAT(CONCAT('%',#{andLikeDeployDate}),'%')
+			</if> 
+			<if test="andLikeContent!=null and andLikeContent!=''">
+				and content like CONCAT(CONCAT('%',#{andLikeContent}),'%')
+			</if> 
+			<if test="andLikeStatus!=null and andLikeStatus!=''">
+				and status like CONCAT(CONCAT('%',#{andLikeStatus}),'%')
+			</if> 
+			<if test="andLikeDeployUsername!=null and andLikeDeployUsername!=''">
+				and deployUsername like CONCAT(CONCAT('%',#{andLikeDeployUsername}),'%')
+			</if> 
+			<if test="andLikeAttribute1!=null and andLikeAttribute1!=''">
+				and attribute1 like CONCAT(CONCAT('%',#{andLikeAttribute1}),'%')
+			</if> 
+			<if test="andLikeAttribute2!=null and andLikeAttribute2!=''">
+				and attribute2 like CONCAT(CONCAT('%',#{andLikeAttribute2}),'%')
+			</if> 
+			<if test="andLikeAttribute3!=null and andLikeAttribute3!=''">
+				and attribute3 like CONCAT(CONCAT('%',#{andLikeAttribute3}),'%')
+			</if> 
+			<if test="andLikeAttribute4!=null and andLikeAttribute4!=''">
+				and attribute4 like CONCAT(CONCAT('%',#{andLikeAttribute4}),'%')
+			</if> 
+			<if test="andLikeAttribute5!=null and andLikeAttribute5!=''">
+				and attribute5 like CONCAT(CONCAT('%',#{andLikeAttribute5}),'%')
+			</if> 
+			<if test="andLikeAttribute6!=null and andLikeAttribute6!=''">
+				and attribute6 like CONCAT(CONCAT('%',#{andLikeAttribute6}),'%')
+			</if> 
+			<if test="andLikeAttribute7!=null and andLikeAttribute7!=''">
+				and attribute7 like CONCAT(CONCAT('%',#{andLikeAttribute7}),'%')
+			</if> 
+			<if test="andLikeAttribute8!=null and andLikeAttribute8!=''">
+				and attribute8 like CONCAT(CONCAT('%',#{andLikeAttribute8}),'%')
+			</if> 
+			<if test="andLikeAttribute9!=null and andLikeAttribute9!=''">
+				and attribute9 like CONCAT(CONCAT('%',#{andLikeAttribute9}),'%')
+			</if> 
+			<if test="andLikeAttribute10!=null and andLikeAttribute10!=''">
+				and attribute10 like CONCAT(CONCAT('%',#{andLikeAttribute10}),'%')
+			</if> 
+    </sql>
+
+    <sql id="startLikeCondition">
+			<if test="startLikeId!=null and startLikeId!=''">
+				and id like CONCAT(CONCAT(#{startLikeId}),'%')
+			</if> 
+			<if test="startLikeItemId!=null and startLikeItemId!=''">
+				and itemId like CONCAT(CONCAT(#{startLikeItemId}),'%')
+			</if> 
+			<if test="startLikeNewsTypeId!=null and startLikeNewsTypeId!=''">
+				and newsTypeId like CONCAT(CONCAT(#{startLikeNewsTypeId}),'%')
+			</if> 
+			<if test="startLikeTitle!=null and startLikeTitle!=''">
+				and title like CONCAT(CONCAT(#{startLikeTitle}),'%')
+			</if> 
+			<if test="startLikeAuthor!=null and startLikeAuthor!=''">
+				and author like CONCAT(CONCAT(#{startLikeAuthor}),'%')
+			</if> 
+			<if test="startLikeSource!=null and startLikeSource!=''">
+				and source like CONCAT(CONCAT(#{startLikeSource}),'%')
+			</if> 
+			<if test="startLikeSourceUrl!=null and startLikeSourceUrl!=''">
+				and sourceUrl like CONCAT(CONCAT(#{startLikeSourceUrl}),'%')
+			</if> 
+			<if test="startLikePicPath!=null and startLikePicPath!=''">
+				and picPath like CONCAT(CONCAT(#{startLikePicPath}),'%')
+			</if> 
+			<if test="startLikeDeployDate!=null and startLikeDeployDate!=''">
+				and deployDate like CONCAT(CONCAT(#{startLikeDeployDate}),'%')
+			</if> 
+			<if test="startLikeContent!=null and startLikeContent!=''">
+				and content like CONCAT(CONCAT(#{startLikeContent}),'%')
+			</if> 
+			<if test="startLikeStatus!=null and startLikeStatus!=''">
+				and status like CONCAT(CONCAT(#{startLikeStatus}),'%')
+			</if> 
+			<if test="startLikeDeployUsername!=null and startLikeDeployUsername!=''">
+				and deployUsername like CONCAT(CONCAT(#{startLikeDeployUsername}),'%')
+			</if> 
+			<if test="startLikeAttribute1!=null and startLikeAttribute1!=''">
+				and attribute1 like CONCAT(CONCAT(#{startLikeAttribute1}),'%')
+			</if> 
+			<if test="startLikeAttribute2!=null and startLikeAttribute2!=''">
+				and attribute2 like CONCAT(CONCAT(#{startLikeAttribute2}),'%')
+			</if> 
+			<if test="startLikeAttribute3!=null and startLikeAttribute3!=''">
+				and attribute3 like CONCAT(CONCAT(#{startLikeAttribute3}),'%')
+			</if> 
+			<if test="startLikeAttribute4!=null and startLikeAttribute4!=''">
+				and attribute4 like CONCAT(CONCAT(#{startLikeAttribute4}),'%')
+			</if> 
+			<if test="startLikeAttribute5!=null and startLikeAttribute5!=''">
+				and attribute5 like CONCAT(CONCAT(#{startLikeAttribute5}),'%')
+			</if> 
+			<if test="startLikeAttribute6!=null and startLikeAttribute6!=''">
+				and attribute6 like CONCAT(CONCAT(#{startLikeAttribute6}),'%')
+			</if> 
+			<if test="startLikeAttribute7!=null and startLikeAttribute7!=''">
+				and attribute7 like CONCAT(CONCAT(#{startLikeAttribute7}),'%')
+			</if> 
+			<if test="startLikeAttribute8!=null and startLikeAttribute8!=''">
+				and attribute8 like CONCAT(CONCAT(#{startLikeAttribute8}),'%')
+			</if> 
+			<if test="startLikeAttribute9!=null and startLikeAttribute9!=''">
+				and attribute9 like CONCAT(CONCAT(#{startLikeAttribute9}),'%')
+			</if> 
+			<if test="startLikeAttribute10!=null and startLikeAttribute10!=''">
+				and attribute10 like CONCAT(CONCAT(#{startLikeAttribute10}),'%')
+			</if> 
+    </sql>
+
+    <update id="setNull" parameterType="map">
+		update News 
+        <set>${tableField} = null</set>
+        <where>
+            <if test="id!=null">id = #{id}</if>
+            <include refid="condition"/>
+        </where>
+    </update>
+
+    <select id="maxInt" parameterType="map" resultType="int">
+		select max(${tableField}) from News 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+        </where>
+    </select>
+</mapper>

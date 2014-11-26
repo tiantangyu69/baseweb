@@ -1,0 +1,1 @@
+var singlePage = new baseManage("singlePage");

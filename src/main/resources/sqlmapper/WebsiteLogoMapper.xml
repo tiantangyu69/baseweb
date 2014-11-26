@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jgenerator.model.WebsiteLogoMapper">
+    <cache />
+    
+    <insert id="insert" parameterType="org.jgenerator.model.WebsiteLogo" useGeneratedKeys="true" keyProperty="id">
+		insert into WebsiteLogo 
+		(id, name, picSize, picType, picUrl, attribute1, attribute2, attribute3, attribute4, attribute5)
+		values
+		(#{id}, #{name}, #{picSize}, #{picType}, #{picUrl}, #{attribute1}, #{attribute2}, #{attribute3}, #{attribute4}, #{attribute5})
+	</insert>
+	
+	<select id="queryByCondition" parameterType="map" resultType="org.jgenerator.model.WebsiteLogo">
+		select * from WebsiteLogo 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+        <if test="orderBy==null and sortBy==null">
+			order by id desc
+		</if>
+        <if test="orderBy!=null">
+			order by ${orderBy}
+		</if>
+        <if test="orderBy!=null and sortBy!=null">
+			${sortBy}
+		</if>
+        <if test="beginRow==null or pageSize==null">
+			limit 0,10
+		</if>
+        <if test="beginRow!=null and pageSize!=null">
+			limit #{beginRow},#{pageSize}
+		</if>
+    </select>
+    
+    <select id="findAll" parameterType="map" resultType="org.jgenerator.model.WebsiteLogo">
+		select * from WebsiteLogo 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="distinct" parameterType="map" resultType="org.jgenerator.model.WebsiteLogo">
+		select Distinct * from WebsiteLogo 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+        <if test="orderBy==null and sortBy==null">
+			order by id desc
+		</if>
+        <if test="orderBy!=null">
+			order by ${orderBy}
+		</if>
+        <if test="orderBy!=null and sortBy!=null">
+			${sortBy}
+		</if>
+        <if test="beginRow==null or pageSize==null">
+			limit 0,10
+		</if>
+        <if test="beginRow!=null and pageSize!=null">
+			limit #{beginRow},#{pageSize}
+		</if>
+    </select>
+
+    <select id="find" parameterType="map" resultType="org.jgenerator.model.WebsiteLogo">
+		select * from WebsiteLogo 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="count" parameterType="map" resultType="int">
+		select count(0) from WebsiteLogo 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="fetch" parameterType="int" resultType="org.jgenerator.model.WebsiteLogo">
+		select * from WebsiteLogo where id=#{id}
+	</select>
+
+    <select id="fetchByCondition" parameterType="int" resultType="org.jgenerator.model.WebsiteLogo">
+		select * from WebsiteLogo
+        <where>
+            <include refid="condition"/>
+        </where>
+    </select>
+
+    <delete id="deleteById" parameterType="int">
+		delete from WebsiteLogo where id=#{id}
+	</delete>
+
+    <delete id="deleteByCondition" parameterType="map">
+		delete from WebsiteLogo 
+        <where>
+            <include refid="condition"/>
+        </where>
+    </delete>
+
+    <update id="update" parameterType="org.jgenerator.model.WebsiteLogo">
+		update WebsiteLogo 
+        <set>
+					<if test="id !=null">
+						id = #{id},
+					</if> 
+					<if test="name !=null">
+						name = #{name},
+					</if> 
+					<if test="picSize !=null">
+						picSize = #{picSize},
+					</if> 
+					<if test="picType !=null">
+						picType = #{picType},
+					</if> 
+					<if test="picUrl !=null">
+						picUrl = #{picUrl},
+					</if> 
+					<if test="attribute1 !=null">
+						attribute1 = #{attribute1},
+					</if> 
+					<if test="attribute2 !=null">
+						attribute2 = #{attribute2},
+					</if> 
+					<if test="attribute3 !=null">
+						attribute3 = #{attribute3},
+					</if> 
+					<if test="attribute4 !=null">
+						attribute4 = #{attribute4},
+					</if> 
+					<if test="attribute5 !=null">
+						attribute5 = #{attribute5}
+					</if> 
+        </set>
+		where id = #{id}
+    </update>
+
+    <sql id="condition">
+			<if test="id !=null">
+				and id = #{id}
+			</if> 
+			<if test="name !=null">
+				and name = #{name}
+			</if> 
+			<if test="picSize !=null">
+				and picSize = #{picSize}
+			</if> 
+			<if test="picType !=null">
+				and picType = #{picType}
+			</if> 
+			<if test="picUrl !=null">
+				and picUrl = #{picUrl}
+			</if> 
+			<if test="attribute1 !=null">
+				and attribute1 = #{attribute1}
+			</if> 
+			<if test="attribute2 !=null">
+				and attribute2 = #{attribute2}
+			</if> 
+			<if test="attribute3 !=null">
+				and attribute3 = #{attribute3}
+			</if> 
+			<if test="attribute4 !=null">
+				and attribute4 = #{attribute4}
+			</if> 
+			<if test="attribute5 !=null">
+				and attribute5 = #{attribute5}
+			</if> 
+    </sql>
+
+    <sql id="andLikeCondition">
+			<if test="andLikeId!=null and andLikeId!=''">
+				and id like CONCAT(CONCAT('%',#{andLikeId}),'%')
+			</if> 
+			<if test="andLikeName!=null and andLikeName!=''">
+				and name like CONCAT(CONCAT('%',#{andLikeName}),'%')
+			</if> 
+			<if test="andLikePicSize!=null and andLikePicSize!=''">
+				and picSize like CONCAT(CONCAT('%',#{andLikePicSize}),'%')
+			</if> 
+			<if test="andLikePicType!=null and andLikePicType!=''">
+				and picType like CONCAT(CONCAT('%',#{andLikePicType}),'%')
+			</if> 
+			<if test="andLikePicUrl!=null and andLikePicUrl!=''">
+				and picUrl like CONCAT(CONCAT('%',#{andLikePicUrl}),'%')
+			</if> 
+			<if test="andLikeAttribute1!=null and andLikeAttribute1!=''">
+				and attribute1 like CONCAT(CONCAT('%',#{andLikeAttribute1}),'%')
+			</if> 
+			<if test="andLikeAttribute2!=null and andLikeAttribute2!=''">
+				and attribute2 like CONCAT(CONCAT('%',#{andLikeAttribute2}),'%')
+			</if> 
+			<if test="andLikeAttribute3!=null and andLikeAttribute3!=''">
+				and attribute3 like CONCAT(CONCAT('%',#{andLikeAttribute3}),'%')
+			</if> 
+			<if test="andLikeAttribute4!=null and andLikeAttribute4!=''">
+				and attribute4 like CONCAT(CONCAT('%',#{andLikeAttribute4}),'%')
+			</if> 
+			<if test="andLikeAttribute5!=null and andLikeAttribute5!=''">
+				and attribute5 like CONCAT(CONCAT('%',#{andLikeAttribute5}),'%')
+			</if> 
+    </sql>
+
+    <sql id="startLikeCondition">
+			<if test="startLikeId!=null and startLikeId!=''">
+				and id like CONCAT(CONCAT(#{startLikeId}),'%')
+			</if> 
+			<if test="startLikeName!=null and startLikeName!=''">
+				and name like CONCAT(CONCAT(#{startLikeName}),'%')
+			</if> 
+			<if test="startLikePicSize!=null and startLikePicSize!=''">
+				and picSize like CONCAT(CONCAT(#{startLikePicSize}),'%')
+			</if> 
+			<if test="startLikePicType!=null and startLikePicType!=''">
+				and picType like CONCAT(CONCAT(#{startLikePicType}),'%')
+			</if> 
+			<if test="startLikePicUrl!=null and startLikePicUrl!=''">
+				and picUrl like CONCAT(CONCAT(#{startLikePicUrl}),'%')
+			</if> 
+			<if test="startLikeAttribute1!=null and startLikeAttribute1!=''">
+				and attribute1 like CONCAT(CONCAT(#{startLikeAttribute1}),'%')
+			</if> 
+			<if test="startLikeAttribute2!=null and startLikeAttribute2!=''">
+				and attribute2 like CONCAT(CONCAT(#{startLikeAttribute2}),'%')
+			</if> 
+			<if test="startLikeAttribute3!=null and startLikeAttribute3!=''">
+				and attribute3 like CONCAT(CONCAT(#{startLikeAttribute3}),'%')
+			</if> 
+			<if test="startLikeAttribute4!=null and startLikeAttribute4!=''">
+				and attribute4 like CONCAT(CONCAT(#{startLikeAttribute4}),'%')
+			</if> 
+			<if test="startLikeAttribute5!=null and startLikeAttribute5!=''">
+				and attribute5 like CONCAT(CONCAT(#{startLikeAttribute5}),'%')
+			</if> 
+    </sql>
+
+    <update id="setNull" parameterType="map">
+		update WebsiteLogo 
+        <set>${tableField} = null</set>
+        <where>
+            <if test="id!=null">id = #{id}</if>
+            <include refid="condition"/>
+        </where>
+    </update>
+
+    <select id="maxInt" parameterType="map" resultType="int">
+		select max(${tableField}) from WebsiteLogo 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+        </where>
+    </select>
+</mapper>

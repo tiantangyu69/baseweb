@@ -1,0 +1,1 @@
+var portalUserType = new baseManage("portalUserType");

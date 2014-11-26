@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<tlib-version>1.0</tlib-version>
+	<short-name>jsagacity function</short-name>
+	<uri>http://jgenerator.org/jstl/functions</uri>
+
+	<!-- JSTL自定义函数 获取新的编码内容 -->
+    <function>
+		<name>getMinPage</name>  <!-- 使用的方法名 -->
+		<function-class>org.sagacity.taglib.function.PageNumber</function-class>
+		<function-signature>java.lang.Integer getMinValue(java.lang.Integer,java.lang.Integer,java.lang.Integer)</function-signature>
+	</function>
+	<function>
+		<name>getMaxPage</name>  <!-- 使用的方法名 -->
+		<function-class>org.sagacity.taglib.function.PageNumber</function-class>
+		<function-signature>java.lang.Integer getMaxValue(java.lang.Integer,java.lang.Integer,java.lang.Integer)</function-signature>
+	</function>
+	<function>
+		<name>containNumber</name>  <!-- 使用的方法名 -->
+		<function-class>org.sagacity.taglib.function.StringUtil</function-class>
+		<function-signature>java.lang.Integer containNumber(java.lang.String, java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>decodeISO</name>  <!-- 使用的方法名 -->
+		<function-class>org.sagacity.taglib.function.StringUtil</function-class>
+		<function-signature>java.lang.String decodeISO(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>uuid</name>  <!-- 使用的方法名 -->
+		<function-class>org.sagacity.taglib.function.StringUtil</function-class>
+		<function-signature>java.lang.String uuid()</function-signature>
+	</function>
+	<function>
+		<name>formatDateTime</name>  <!-- 使用的方法名 -->
+		<function-class>org.sagacity.taglib.function.DateUtil</function-class>
+		<function-signature>java.lang.String formatDateTime(java.util.Date)</function-signature>
+	</function>
+	<function>
+		<name>encode</name>  <!-- 使用的方法名 -->
+		<function-class>org.sagacity.taglib.function.EncryptUtil</function-class>
+		<function-signature>java.lang.String encode(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>decode</name>  <!-- 使用的方法名 -->
+		<function-class>org.sagacity.taglib.function.EncryptUtil</function-class>
+		<function-signature>java.lang.String decode(java.lang.String)</function-signature>
+	</function>
+	<!-- 处理字符串 -->
+	<function>
+		<name>limitSize</name>  <!-- 使用的方法名 -->
+		<function-class>org.sagacity.taglib.function.StringUtil</function-class>
+		<function-signature>java.lang.String limitSize(java.lang.String, java.lang.Integer)</function-signature>
+	</function>
+	<!-- 是否为图片 -->
+	<function>
+		<name>isImage</name>  <!-- 使用的方法名 -->
+		<function-class>org.sagacity.taglib.function.StringUtil</function-class>
+		<function-signature>java.lang.Boolean isImage(java.lang.String)</function-signature>
+	</function>
+</taglib>   

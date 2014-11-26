@@ -1,0 +1,8 @@
+ul {list-style: none;margin: 0px;padding: 0px}
+img{ border:0;}
+.click_out {float: left;height: 16px;width: 16px;text-align: center;line-height: 16px;background: #333;color: #FFF;font-weight: bold;font-size: 12px;cursor: pointer;_display: inline-block;}
+.click_over{float: left;height: 16px;width: 16px;line-height: 16px;text-align: center;background: #3498fd;color: #FFF;font-weight: bold;font-size: 12px;cursor: pointer;_display: inline-block;}
+.picNews_size {float:left;background: #EBEBEB;position: relative;}
+.picNews_style {width:568px;height:230px;overflow: hidden;}
+.picNews_num {position:absolute;right: 5px;bottom: 4px;height: 16px;display:inline;}
+.click_over2{float: left;height: 16px;width: 16px;line-height: 16px;text-align: center;background: #ff0000;color: #FFF;font-weight: bold;font-size: 12px;cursor: pointer;_display: inline-block;}

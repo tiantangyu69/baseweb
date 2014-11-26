@@ -1,0 +1,1 @@
+var systemLog = new baseManage("systemLog");

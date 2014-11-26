@@ -1,0 +1,16 @@
+@charset "utf-8";
+html, body { font-family:"微软雅黑"}
+
+div.slidebox{ position:relative; overflow:hidden;}
+div.slidebox ul.items{ position:absolute; float:left; background:none; list-style:none; padding:0px; margin:0px;}
+div.slidebox ul.items li{ float:left; background:none; list-style:none; padding:0px; margin:0px;}
+div.slidebox ul.items li a{ float:left; line-height:normal !important; padding:0px !important; border:none/*For IE.ADD.JENA.201206300844*/;}
+div.slidebox ul.items li a img{ margin:0px !important; padding:0px !important; display:block; border:none/*For IE.ADD.JENA.201206300844*/; }
+div.slidebox div.tips{ position:absolute; bottom:0px; width:100%; height:40px; background-color:#000; overflow:hidden;}
+div.slidebox div.tips div.title{ position:absolute; left:0px; top:0px; height:100%;}
+div.slidebox div.tips div.title a{ font-family:微软雅黑; font-size:16px; font-weight:normal; font-style:normal; text-decoration:none; color:#FFFFFF; line-height:40px; margin-left:20px; opacity: 1.0;}
+div.slidebox div.tips div.nums{ position:absolute; right:0px; top:0px; height:100%;}
+div.slidebox div.tips div.nums a{ display:inline-block; >float:left/*For IE.ADD.JENA.201206300844*/; width:12px; height:12px; background-color:#FFF; text-indent:-99999px; margin:14px 8px 14px 0px; font-size:0;}
+div.slidebox div.tips div.nums a.active{ background-color: #ffc000; }
+
+

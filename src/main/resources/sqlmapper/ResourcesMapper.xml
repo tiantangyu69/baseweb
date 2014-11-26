@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.jgenerator.model.ResourcesMapper">
+    <cache />
+    
+    <insert id="insert" parameterType="org.jgenerator.model.Resources" useGeneratedKeys="true" keyProperty="id">
+		insert into Resources 
+		(id, code, name, resourceType, url, parentId, attribute1, attribute2, attribute3, attribute4, attribute5)
+		values
+		(#{id}, #{code}, #{name}, #{resourceType}, #{url}, #{parentId}, #{attribute1}, #{attribute2}, #{attribute3}, #{attribute4}, #{attribute5})
+	</insert>
+	
+	<select id="queryByCondition" parameterType="map" resultType="org.jgenerator.model.Resources">
+		select * from Resources 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+        <if test="orderBy==null and sortBy==null">
+			order by id desc
+		</if>
+        <if test="orderBy!=null">
+			order by ${orderBy}
+		</if>
+        <if test="orderBy!=null and sortBy!=null">
+			${sortBy}
+		</if>
+        <if test="beginRow==null or pageSize==null">
+			limit 0,10
+		</if>
+        <if test="beginRow!=null and pageSize!=null">
+			limit #{beginRow},#{pageSize}
+		</if>
+    </select>
+    
+    <select id="findAll" parameterType="map" resultType="org.jgenerator.model.Resources">
+		select * from Resources 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="distinct" parameterType="map" resultType="org.jgenerator.model.Resources">
+		select Distinct * from Resources 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+        <if test="orderBy==null and sortBy==null">
+			order by id desc
+		</if>
+        <if test="orderBy!=null">
+			order by ${orderBy}
+		</if>
+        <if test="orderBy!=null and sortBy!=null">
+			${sortBy}
+		</if>
+        <if test="beginRow==null or pageSize==null">
+			limit 0,10
+		</if>
+        <if test="beginRow!=null and pageSize!=null">
+			limit #{beginRow},#{pageSize}
+		</if>
+    </select>
+
+    <select id="find" parameterType="map" resultType="org.jgenerator.model.Resources">
+		select * from Resources 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="count" parameterType="map" resultType="int">
+		select count(0) from Resources 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+            <include refid="startLikeCondition"/>
+        </where>
+    </select>
+
+    <select id="fetch" parameterType="int" resultType="org.jgenerator.model.Resources">
+		select * from Resources where id=#{id}
+	</select>
+
+    <select id="fetchByCondition" parameterType="int" resultType="org.jgenerator.model.Resources">
+		select * from Resources
+        <where>
+            <include refid="condition"/>
+        </where>
+    </select>
+
+    <delete id="deleteById" parameterType="int">
+		delete from Resources where id=#{id}
+	</delete>
+
+    <delete id="deleteByCondition" parameterType="map">
+		delete from Resources 
+        <where>
+            <include refid="condition"/>
+        </where>
+    </delete>
+
+    <update id="update" parameterType="org.jgenerator.model.Resources">
+		update Resources 
+        <set>
+					<if test="id !=null">
+						id = #{id},
+					</if> 
+					<if test="code !=null">
+						code = #{code},
+					</if> 
+					<if test="name !=null">
+						name = #{name},
+					</if> 
+					<if test="resourceType !=null">
+						resourceType = #{resourceType},
+					</if> 
+					<if test="url !=null">
+						url = #{url},
+					</if> 
+					<if test="parentId !=null">
+						parentId = #{parentId},
+					</if> 
+					<if test="attribute1 !=null">
+						attribute1 = #{attribute1},
+					</if> 
+					<if test="attribute2 !=null">
+						attribute2 = #{attribute2},
+					</if> 
+					<if test="attribute3 !=null">
+						attribute3 = #{attribute3},
+					</if> 
+					<if test="attribute4 !=null">
+						attribute4 = #{attribute4},
+					</if> 
+					<if test="attribute5 !=null">
+						attribute5 = #{attribute5}
+					</if> 
+        </set>
+		where id = #{id}
+    </update>
+
+    <sql id="condition">
+			<if test="id !=null">
+				and id = #{id}
+			</if> 
+			<if test="code !=null">
+				and code = #{code}
+			</if> 
+			<if test="name !=null">
+				and name = #{name}
+			</if> 
+			<if test="resourceType !=null">
+				and resourceType = #{resourceType}
+			</if> 
+			<if test="url !=null">
+				and url = #{url}
+			</if> 
+			<if test="parentId !=null">
+				and parentId = #{parentId}
+			</if> 
+			<if test="attribute1 !=null">
+				and attribute1 = #{attribute1}
+			</if> 
+			<if test="attribute2 !=null">
+				and attribute2 = #{attribute2}
+			</if> 
+			<if test="attribute3 !=null">
+				and attribute3 = #{attribute3}
+			</if> 
+			<if test="attribute4 !=null">
+				and attribute4 = #{attribute4}
+			</if> 
+			<if test="attribute5 !=null">
+				and attribute5 = #{attribute5}
+			</if> 
+    </sql>
+
+    <sql id="andLikeCondition">
+			<if test="andLikeId!=null and andLikeId!=''">
+				and id like CONCAT(CONCAT('%',#{andLikeId}),'%')
+			</if> 
+			<if test="andLikeCode!=null and andLikeCode!=''">
+				and code like CONCAT(CONCAT('%',#{andLikeCode}),'%')
+			</if> 
+			<if test="andLikeName!=null and andLikeName!=''">
+				and name like CONCAT(CONCAT('%',#{andLikeName}),'%')
+			</if> 
+			<if test="andLikeResourceType!=null and andLikeResourceType!=''">
+				and resourceType like CONCAT(CONCAT('%',#{andLikeResourceType}),'%')
+			</if> 
+			<if test="andLikeUrl!=null and andLikeUrl!=''">
+				and url like CONCAT(CONCAT('%',#{andLikeUrl}),'%')
+			</if> 
+			<if test="andLikeParentId!=null and andLikeParentId!=''">
+				and parentId like CONCAT(CONCAT('%',#{andLikeParentId}),'%')
+			</if> 
+			<if test="andLikeAttribute1!=null and andLikeAttribute1!=''">
+				and attribute1 like CONCAT(CONCAT('%',#{andLikeAttribute1}),'%')
+			</if> 
+			<if test="andLikeAttribute2!=null and andLikeAttribute2!=''">
+				and attribute2 like CONCAT(CONCAT('%',#{andLikeAttribute2}),'%')
+			</if> 
+			<if test="andLikeAttribute3!=null and andLikeAttribute3!=''">
+				and attribute3 like CONCAT(CONCAT('%',#{andLikeAttribute3}),'%')
+			</if> 
+			<if test="andLikeAttribute4!=null and andLikeAttribute4!=''">
+				and attribute4 like CONCAT(CONCAT('%',#{andLikeAttribute4}),'%')
+			</if> 
+			<if test="andLikeAttribute5!=null and andLikeAttribute5!=''">
+				and attribute5 like CONCAT(CONCAT('%',#{andLikeAttribute5}),'%')
+			</if> 
+    </sql>
+
+    <sql id="startLikeCondition">
+			<if test="startLikeId!=null and startLikeId!=''">
+				and id like CONCAT(CONCAT(#{startLikeId}),'%')
+			</if> 
+			<if test="startLikeCode!=null and startLikeCode!=''">
+				and code like CONCAT(CONCAT(#{startLikeCode}),'%')
+			</if> 
+			<if test="startLikeName!=null and startLikeName!=''">
+				and name like CONCAT(CONCAT(#{startLikeName}),'%')
+			</if> 
+			<if test="startLikeResourceType!=null and startLikeResourceType!=''">
+				and resourceType like CONCAT(CONCAT(#{startLikeResourceType}),'%')
+			</if> 
+			<if test="startLikeUrl!=null and startLikeUrl!=''">
+				and url like CONCAT(CONCAT(#{startLikeUrl}),'%')
+			</if> 
+			<if test="startLikeParentId!=null and startLikeParentId!=''">
+				and parentId like CONCAT(CONCAT(#{startLikeParentId}),'%')
+			</if> 
+			<if test="startLikeAttribute1!=null and startLikeAttribute1!=''">
+				and attribute1 like CONCAT(CONCAT(#{startLikeAttribute1}),'%')
+			</if> 
+			<if test="startLikeAttribute2!=null and startLikeAttribute2!=''">
+				and attribute2 like CONCAT(CONCAT(#{startLikeAttribute2}),'%')
+			</if> 
+			<if test="startLikeAttribute3!=null and startLikeAttribute3!=''">
+				and attribute3 like CONCAT(CONCAT(#{startLikeAttribute3}),'%')
+			</if> 
+			<if test="startLikeAttribute4!=null and startLikeAttribute4!=''">
+				and attribute4 like CONCAT(CONCAT(#{startLikeAttribute4}),'%')
+			</if> 
+			<if test="startLikeAttribute5!=null and startLikeAttribute5!=''">
+				and attribute5 like CONCAT(CONCAT(#{startLikeAttribute5}),'%')
+			</if> 
+    </sql>
+
+    <update id="setNull" parameterType="map">
+		update Resources 
+        <set>${tableField} = null</set>
+        <where>
+            <if test="id!=null">id = #{id}</if>
+            <include refid="condition"/>
+        </where>
+    </update>
+
+    <select id="maxInt" parameterType="map" resultType="int">
+		select max(${tableField}) from Resources 
+        <where>
+            <include refid="condition"/>
+            <include refid="andLikeCondition"/>
+        </where>
+    </select>
+</mapper>
